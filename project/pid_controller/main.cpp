@@ -216,17 +216,16 @@ int main ()
 
   // initialize pid steer
   /**
-  * TODO (Step 1): create pid (pid_steer) for steer command and initialize values
+  * (Step 1): create pid (pid_steer) for steer command and initialize values
   **/
+  PID pid_steer = PID();
+  pid_steer.Init(0.4, 0.001, 0.8, 1.2, -1.2);
 
 
   // initialize pid throttle
   /**
-  * TODO (Step 1): create pid (pid_throttle) for throttle command and initialize values
+  * (Step 1): create pid (pid_throttle) for throttle command and initialize values
   **/
-
-  PID pid_steer = PID();
-  pid_steer.Init(0.3, 0.001, 0.78, 1.2, -1.2);
   
   PID pid_throttle = PID();  
   pid_throttle.Init(0.2, 0.001, 0.06, 1.0, -1.0);
@@ -306,8 +305,8 @@ int main ()
           **/
           
           // firstly, find the closest point index
-          double min_dist = 10000.0;
-          int closest_idx = -1;
+          double min_dist = 1000000.0;
+          int closest_idx = 0;
           for (int i = 0; i < x_points.size(); i++)
           {
             double curr_dist = sqrt(pow((x_position - x_points[i]), 2) + pow((y_position - y_points[i]), 2));
@@ -318,6 +317,7 @@ int main ()
             }
           }
           
+//           error_steer = angle_between_points(x_position, y_position, x_points[x_points.size()-1], y_points[y_points.size()-1]) - yaw;
           error_steer = angle_between_points(x_position, y_position, x_points[closest_idx], y_points[closest_idx]) - yaw;
 
 
@@ -354,6 +354,7 @@ int main ()
           **/
           // calculate throttle error which is difference between actual and desired speeds
           error_throttle = v_points[closest_idx] - velocity;
+//           error_throttle = v_points.back() - velocity;
 
 
           double throttle_output;

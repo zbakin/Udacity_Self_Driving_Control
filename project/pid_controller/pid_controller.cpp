@@ -38,17 +38,14 @@ void PID::UpdateError(double cte) {
    /**
    * Update PID errors based on cte.
    **/
-   p_error = cte;
-   if (dt>0)
+   if (dt > 0)
    {    
      d_error = (cte - p_error) / dt; 
    } else {    
      d_error = 0.0;
    }
-  
    p_error = cte;
    i_error += cte * dt;  
-  
 }
 
 double PID::TotalError() {

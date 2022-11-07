@@ -122,6 +122,22 @@ Answer the following questions:
 
 ### Step 1
 
-![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/step%201.png "Step 1")
+![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/step%201.png "Step 1 - no movement")
+
+
+### Step 2
+
+
+### Step 2
+
+
+### Step 4
+
+![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/final_plot1.png "Step 4 - steering error")
+
+
+![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/final_plot2.png "Step 4 - throttle error")
+
+
 
 

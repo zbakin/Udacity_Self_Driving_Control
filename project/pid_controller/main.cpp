@@ -289,7 +289,7 @@ int main ()
           ////////////////////////////////////////
 
           /**
-          * (step 3): uncomment these lines
+          * (step 3):
           **/
           // Update the delta time with the previous command
           pid_steer.UpdateDeltaTime(new_delta_time);
@@ -304,7 +304,7 @@ int main ()
           * (step 3): compute the steer error (error_steer) from the position and the desired trajectory
           **/
           
-          // firstly, find the closest point index
+          // calculate closest_idx, the closest point index
           double min_dist = 1000000.0;
           int closest_idx = 0;
           for (int i = 0; i < x_points.size(); i++)
@@ -316,13 +316,13 @@ int main ()
                closest_idx = i;
             }
           }
-          
-//           error_steer = angle_between_points(x_position, y_position, x_points[x_points.size()-1], y_points[y_points.size()-1]) - yaw;
+          // first get the angle between actual car and next planned waypoint using angle_between_points()
+          // then subtract yaw from it to get the angle between actual and desired positions -> steering error
           error_steer = angle_between_points(x_position, y_position, x_points[closest_idx], y_points[closest_idx]) - yaw;
 
 
           /**
-          * (step 3): uncomment these lines
+          * (step 3):
           **/
           // Compute control to apply
           pid_steer.UpdateError(error_steer);
@@ -342,7 +342,7 @@ int main ()
           ////////////////////////////////////////
 
           /**
-          * (step 2): uncomment these lines
+          * (step 2):
           **/
            // Update the delta time with the previous command
           pid_throttle.UpdateDeltaTime(new_delta_time);
@@ -353,15 +353,14 @@ int main ()
           * (step 2): compute the throttle error (error_throttle) from the position and the desired speed
           **/
           // calculate throttle error which is difference between actual and desired speeds
+          // v_points[closes_idx] gives closest point velocity in the planned velocity trajectory, velocity gives actual car velocity
           error_throttle = v_points[closest_idx] - velocity;
-//           error_throttle = v_points.back() - velocity;
-
 
           double throttle_output;
           double brake_output;
 
           /**
-          * TODO (step 2): uncomment these lines
+          * (step 2):
           **/
           // Compute control to apply
           pid_throttle.UpdateError(error_throttle);

@@ -116,3 +116,12 @@ Answer the following questions:
 - If the simulation freezes on the desktop mode but is still running on the terminal, close the desktop and restart it.
 - When you will be tuning the PID parameters, try between those values:
 
+
+
+## Results and Discussion
+
+### Step 1
+
+![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/step%201.png "Step 1")
+
+

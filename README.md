@@ -162,10 +162,15 @@ In this PID controller, also closest point method to obtain reference velocity w
 
 
 #### What is the effect of the PID according to the plots, how each part of the PID affects the control command?
+PID stands for Proportional, Intergral and Derivative.
+
+1. Proportional parameter - proportionally changes the cross track error. When using this parameter only, the car tends to overshoot.
+2. Integral parameter - takes into account all past error information and adjust accordingly to reduce steady state error.
+3. Derivative parameter - uses rate of change of the cross track error. This helps to minimise the overshoot of the proportional part. 
 
 
 #### How would you design a way to automatically tune the PID parameters?
-
+Method called Twiddle is used to tune the parameters of Kp, Ki, Kd. In brief, the algorithm iterates through variations of error parameters with the aim to minimise the average cross track error(cte). By implementing such an algorithm in a script, the parameters could be tuned automatically. 
 
 #### PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
 

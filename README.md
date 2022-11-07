@@ -174,6 +174,8 @@ Method called Twiddle is used to tune the parameters of Kp, Ki, Kd. In brief, th
 
 ### PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
 
+#### Pros
+Fast and easy to implement. There is not much knowledge needed. Parameters tuning is straightforward with the use of algorithm such as Twiddle.
 
-
-
+#### Cons
+The integral parameter takes some time before it can give an effect.

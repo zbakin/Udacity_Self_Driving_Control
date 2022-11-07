@@ -133,10 +133,26 @@ Answer the following questions:
 
 ### Step 4
 
+The following pictures represent the steering and throttle errors made by the car and PID controller, with respect to the given trajectory.
+
 ![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/final_plot1.png "Step 4 - steering error")
+In the given plot, you can see the amplitude of the steering error on y-axis, and the sample iteration of movement on x-axis. These iterations were fed to Carla simulator to demonstrate the movement of the car.
+The PID controller makes sure the average of steering error is around 0. To calculate steering error, reference yaw needed to be found. This was done by calculating the closest point from the ego vehicle to the path. There was another method to calculate reference yaw -> the ego vehicle and the last point of the path. However, that method showed worse results. 
 
 
 ![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/final_plot2.png "Step 4 - throttle error")
+
+Here, the amplitude of the throttle error is shown on y-axis. The more iterations are complete, the more data is feeded to PID controller. That is why with time the controller stabilises and the plot smoothes. The average error approximates to 1.
+In this PID controller, also closest point method to obtain reference velocity was used.
+
+
+#### What is the effect of the PID according to the plots, how each part of the PID affects the control command?
+
+
+#### How would you design a way to automatically tune the PID parameters?
+
+
+#### PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
 
 
 

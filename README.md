@@ -125,8 +125,10 @@ Answer the following questions:
 ![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/step%201.png "Step 1 - no movement")
 
 #### Tuning parameters:
+```
 pid_steer.Init(0.4, 0.001, 0.8, 1.2, -1.2);
 pid_throttle.Init(0.2, 0.001, 0.06, 1.0, -1.0);
+```
   
 
 ### Step 2

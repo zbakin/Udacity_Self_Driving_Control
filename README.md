@@ -124,12 +124,25 @@ Answer the following questions:
 
 ![alt text](https://github.com/zbakin/Udacity_Self_Driving_Control/blob/master/step%201.png "Step 1 - no movement")
 
+#### Tuning parameters:
+pid_steer.Init(0.4, 0.001, 0.8, 1.2, -1.2);
+pid_throttle.Init(0.2, 0.001, 0.06, 1.0, -1.0);
+  
 
 ### Step 2
 
+```
+// calculate throttle error which is difference between actual and desired speeds
+// v_points[closes_idx] gives closest point velocity in the planned velocity trajectory, velocity gives actual car velocity
+error_throttle = v_points[closest_idx] - velocity;
+```
 
-### Step 2
-
+### Step 3
+```
+// first get the angle between actual car and next planned waypoint using angle_between_points()
+// then subtract yaw from it to get the angle between actual and desired positions -> steering error
+error_steer = angle_between_points(x_position, y_position, x_points[closest_idx], y_points[closest_idx]) - yaw;
+```
 
 ### Step 4
 
